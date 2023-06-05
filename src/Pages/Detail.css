@@ -1,0 +1,9 @@
+.movie_details{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.star-icon{
+    color: #fff;
+}
