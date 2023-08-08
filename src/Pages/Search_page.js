@@ -46,7 +46,7 @@ function handlenewpage(newpage){
   },[props.query])
 return(
 
-  <>
+  <div style={{background:"#FFF4F4"}}>
   {selectedInfo ? (
         <DetailedInfo info={selectedInfo} />
       ):(
@@ -83,7 +83,7 @@ return(
     </div>
       )
     }
-  </>
+  </div>
 );
 
 

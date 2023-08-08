@@ -21,7 +21,7 @@ const Trending = () => {
       };
 
       try {
-        const response = await fetch(`https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=04c35731a5ee918f014970082a0088b1&page=${Page}`, options);
+        const response = await fetch(`https://api.themoviedb.org/3/trending/all/day?language=en-US&page=${Page}`, options);
         const data = await response.json();
         setState(data.results);
       } catch (error) {
@@ -41,14 +41,14 @@ const Trending = () => {
   }
 
   return (
-    <>
+    <div style={{background:"#FFF4F4"}}>
       {selectedInfo ? (
         <DetailedInfo info={selectedInfo} />
       ) : (
         <>
           <div className='container'>
-            <div className="row py-5 my-5">
-              <div className="col-12 mt-4 mb-4 fs-1 fw-bold text-underline head d-flex justify-content-center align-items-center">
+            <div className="row py-4">
+              <div className="col-12 mt-2 mb-4 fs-1 fw-bold text-underline head d-flex justify-content-center align-items-center">
                 <i className='bi bi-fire mx-4'></i>
                 <h4 className='fs-2'>Trending Today</h4>
                 <i className='bi bi-fire mx-4'></i>
@@ -58,7 +58,7 @@ const Trending = () => {
           <div className='box'>
             {state.length > 0 ? (
               state.map((val) => (
-                <div key={val.id} className="col-md-3 col-sm-4 py-3 d-flex justify-content-center g-4" id="card" onClick={() => handleItemClick(val)}>
+                <div key={val.id} className="col-md-3 col-sm-4 pt-3 d-flex justify-content-center g-4" id="card" onClick={() => handleItemClick(val)}>
                   <div className="card " key={val.id}>
                     <img
                       src={`${imgpath}${val.poster_path}`}
@@ -84,7 +84,7 @@ const Trending = () => {
           <Next_prev_btn Page={Page} onpagechange={handleNewPage} />
         </>
       )}
-    </>
+    </div>
   )
 }
 

@@ -41,7 +41,7 @@ export default function TV() {
     setPage(newpage)
   }
   return (
-    <>
+    <div style={{background:"#FFF4F4"}}>
     {selectedInfo ? (
         <DetailedInfo info={selectedInfo} />
       ):(
@@ -78,6 +78,6 @@ export default function TV() {
       <Next_prev_btn Page={Page} onpagechange={handlenewpage}/>
     </div>
       )}
-    </>
+    </div>
   )
 }
